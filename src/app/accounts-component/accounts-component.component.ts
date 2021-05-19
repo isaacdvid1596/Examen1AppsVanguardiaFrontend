@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../core/account.service';
+import { Account } from '../shared/models/Account';
 
 @Component({
   selector: 'app-accounts-component',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsComponentComponent implements OnInit {
 
-  constructor() { }
+  accounts: Account[];
+  
+  constructor(private accountService : AccountService) { }
+
 
   ngOnInit(): void {
+    this.accountService.getAccounts()
+    .subscribe((data:Account[])=>{
+      this.accounts = data;
+    });
   }
 
 }
