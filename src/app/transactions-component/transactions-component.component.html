@@ -9,7 +9,6 @@
                 <tbody>
                     <tr *ngFor="let transaction of transactions">
                         <td><p>{{transaction.transactionDescription}}</p>
-                            <p></p>
                         </td>
                         <td *ngIf="transaction.transactionAmount > 0">
                             <p style="color:green">{{transaction.transactionAmount| currency:currencyCode:'code'}}</p>
