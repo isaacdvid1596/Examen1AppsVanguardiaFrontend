@@ -10,11 +10,11 @@ import { Transaction } from '../shared/models/Transaction';
 })
 export class TransactionService {
 
-  baseUrl : string = "http://localhost:44343"
+  baseUrl : string = "https://localhost:44343"
 
   constructor(private httpClient : HttpClient) { }
 
-  getAccounts() : Observable<Transaction[]>{
+  getTransaction() : Observable<Transaction[]>{
     return this.httpClient.get<Transaction[]>(`${this.baseUrl}/transactions`);
   }
 

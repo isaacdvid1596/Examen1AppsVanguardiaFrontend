@@ -1,4 +1,5 @@
 export interface Account{
-   Name:string,
-   Amount:number
+   accountName:string,
+   accountAmount:number,
+   accountCurrenty:string
 }

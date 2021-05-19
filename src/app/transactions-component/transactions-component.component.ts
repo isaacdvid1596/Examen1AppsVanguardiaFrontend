@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TransactionService } from '../core/transaction.service';
+import { Transaction } from '../shared/models/Transaction';
 
 @Component({
   selector: 'app-transactions-component',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponentComponent implements OnInit {
 
-  constructor() { }
+  transactions:Transaction[];
+
+
+  constructor(private transactionService : TransactionService) { }
 
   ngOnInit(): void {
+    this.transactionService.getTransaction()
+    .subscribe((data:Transaction[])=>{
+      this.transactions = data;
+    });
   }
 
 }

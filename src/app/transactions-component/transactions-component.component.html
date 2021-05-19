@@ -3,18 +3,22 @@
     <div class="card">
         <div class="card-body">
             <h2 class="card-title">
-                transactions
+                Transactions
             </h2>
             <table class="table table-hover">
                 <tbody>
-                    <tr>
-                        adsdsadadaass
-                    </tr>
-                    <tr>
-                        dadsdasdasd
-                    </tr>
-                    <tr>
-                        dasdasdasdas
+                    <tr *ngFor="let transaction of transactions">
+                        <td><p>{{transaction.transactionDescription}}</p>
+                            <p></p>
+                        </td>
+                        <td *ngIf="transaction.transactionAmount > 0">
+                            <p style="color:green">{{transaction.transactionAmount| currency:currencyCode:'code'}}</p>
+                            <p>{{transaction.transactionDate}}</p>
+                        </td>
+                        <td *ngIf="transaction.transactionAmount < 0">
+                            <p style="color:red">{{transaction.transactionAmount| currency:currencyCode:'code'}}</p>
+                            <p>{{transaction.transactionDate}}</p>
+                        </td>
                     </tr>
                 </tbody>
             </table>

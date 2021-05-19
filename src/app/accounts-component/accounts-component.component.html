@@ -13,7 +13,7 @@
                 <tbody>
                   <tr *ngFor="let account of accounts">
                       <td>{{account.accountName}}</td>
-                      <td>{{account.accountAmount}}</td>
+                      <td>{{account.accountAmount | currency:currencyCode:'code'}}</td>
                   </tr>
                 </tbody>
             </table>

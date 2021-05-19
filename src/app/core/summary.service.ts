@@ -10,11 +10,11 @@ import { Summary } from '../shared/models/Summary';
 })
 export class SummaryService {
 
-  baseUrl : string = "http://localhost:44343"
+  baseUrl : string = "https://localhost:44343"
 
   constructor(private httpClient : HttpClient) { }
 
-  getAccounts() : Observable<Summary[]>{
+  getSummary() : Observable<Summary[]>{
     return this.httpClient.get<Summary[]>(`${this.baseUrl}/summary`);
   }
 
